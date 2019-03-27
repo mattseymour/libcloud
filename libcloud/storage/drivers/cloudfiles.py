@@ -418,7 +418,7 @@ class CloudFilesStorageDriver(StorageDriver, OpenStackDriverMixin):
 
         return self._get_object(obj=obj, callback=read_in_chunks,
                                 response=response,
-                                callback_kwargs={'iterator': response.response,
+                                callback_kwargs={'iterator': response.iter_content(chunk_size),
                                                  'chunk_size': chunk_size},
                                 success_status_code=httplib.OK)
 
